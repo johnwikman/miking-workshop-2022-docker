@@ -41,7 +41,7 @@ push-manifests:
 	$(eval AMENDMENTS := $(foreach a,amd64 arm64,--amend $(IMAGENAME):$(VERSION)-$a))
 	echo $(AMENDMENTS)
 
-	#docker manifest create $(IMAGENAME):$(VERSION) $(AMENDMENTS)
-	#docker manifest create $(IMAGENAME):latest $(AMENDMENTS)
-	#docker manifest push $(IMAGENAME):$(VERSION)
-	#docker manifest push $(IMAGENAME):latest
+	docker manifest create $(IMAGENAME):$(VERSION) $(AMENDMENTS)
+	docker manifest create $(IMAGENAME):latest $(AMENDMENTS)
+	docker manifest push $(IMAGENAME):$(VERSION)
+	docker manifest push $(IMAGENAME):latest
